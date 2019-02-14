@@ -1,0 +1,18 @@
+---
+filter: containers_without_exec
+zabbix_item_trap_err: urotate.check_docker.trap_err
+keep_alive_item_key: urotate.check_docker.up
+pre_discovered_containers:
+- uworkflow
+- celery
+blacklisted_containers:
+- export_data
+- help
+- shell
+- dbshell
+is_not_running_thresholds:
+  uworkflow: 5m
+  celery: 10m
+  deploy_status: 365d
+  simple_buildwatson: 180d
+  default: 30d
